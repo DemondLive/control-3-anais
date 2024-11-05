@@ -8,6 +8,7 @@ st.write("""
 # Top Marvel Movies
 ## Gráficos usando la base de datos de Marvel Movies
 """)
+st.sidebar.image("Marvel-en-2019-destacada.jpg")
 
 with st.sidebar:
     st.write("# Opciones")
