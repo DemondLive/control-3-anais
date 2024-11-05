@@ -15,22 +15,22 @@ with st.sidebar:
     st.write("Bins =", div)
 
 plt.figure(figsize=(12, 6))
-    plt.hist(df['Worldwide Gross ($m)'], bins=10) # Using a default of 10 bins
-    plt.xlabel('Worldwide Gross ($m)')
-    plt.ylabel('Frequency')
-    plt.title('Histogram of Worldwide Gross')
+    plt.hist(df['worldwide gross ($m)'], bins=10) # Using a default of 10 bins
+    plt.xlabel('worldwide gross ($m)')
+    plt.ylabel('% budget recovered')
+    plt.title('Histogram of worldwide gross')
     plt.show()
     
     plt.figure(figsize=(12, 6))
-    plt.hist(df['Audience score'], bins=10)
-    plt.xlabel('Audience Score')
-    plt.ylabel('Frequency')
+    plt.hist(df['audience % score'], bins=10)
+    plt.xlabel('audience % score')
+    plt.ylabel('% budget recovered')
     plt.title('Histogram of Audience Score')
     plt.show()
 
     plt.figure(figsize=(12,6))
-    plt.hist(df['Year'], bins = 10)
-    plt.xlabel('Year')
-    plt.ylabel('Frequency')
+    plt.hist(df['year'], bins = 10)
+    plt.xlabel('year')
+    plt.ylabel('')
     plt.title('Histogram of Year')
     plt.show()
