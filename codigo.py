@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('/content/Marvel Movies.csv')
+df = pd.read_csv('Marvel Movies.csv')
 
 st.write("""
 # Top Marvel Movies
