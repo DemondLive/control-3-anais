@@ -16,7 +16,7 @@ with st.sidebar:
     st.write("Bins =", div)
 
 plt.figure(figsize=(12, 6))
-plt.hist(df['worldwide gross ($m)'], bins=10) # Using a default of 10 bins
+plt.hist(df['worldwide gross ($m)'], bins=div) # Using a default of 10 bins
 plt.xlabel('worldwide gross ($m)')
 plt.ylabel('% budget recovered')
 plt.title('Histogram of worldwide gross')
