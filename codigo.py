@@ -10,15 +10,6 @@ st.write("""
 """)
 st.sidebar.image("Marvel-en-2019-destacada.jpg")
 
-# Función para dibujar el gráfico
-def plot_chart(color):
-    x = np.arange(10)
-    y = np.random.randint(1, 10, size=10)
-    plt.bar(x, y, color=color)
-    plt.xlabel('X axis')
-    plt.ylabel('Y axis')
-    st.pyplot(plt.gcf())
-
 # Opciones de colores
 color_options = {
     'Rojo': 'red',
@@ -27,36 +18,55 @@ color_options = {
     'Rosado': 'pink'
 }
 
-# Crear un selectbox para elegir el color
-color_choice = st.selectbox('Cambia el color del gráfico', list(color_options.keys()))
+# Selección del color en el menú lateral
+color_choice = st.sidebar.selectbox('Cambia el color del gráfico', list(color_options.keys()))
 
-# Dibujar el gráfico con el color seleccionado
-plot_chart(color_options[color_choice])
+# Definir divisiones para los histogramas
+div = 10
 
-
-
-with st.sidebar:
-    st.write("# Opciones")
-    div = st.slider('Número de bins:', 0, 100, 1)
-    st.write("Bins =", div)
-
-plt.figure(figsize=(12, 6))
-plt.hist(df['worldwide gross ($m)'], bins=div) # Using a default of 10 bins
-plt.xlabel('worldwide gross ($m)')
-plt.ylabel('% budget recovered')
-plt.title('Histogram of worldwide gross')
-st.pyplot()
+# Función para mostrar los gráficos con el color seleccionado
+def plot_histograms(color):
+    # Histograma 1: worldwide gross
+    plt.figure(figsize=(12, 6))
+    plt.hist(df['worldwide gross ($m)'], bins=div, color=color)
+    plt.xlabel('worldwide gross ($m)')
+    plt.ylabel('% budget recovered')
+    plt.title('Histogram of worldwide gross')
+    st.pyplot(plt.gcf())
     
-plt.figure(figsize=(12, 6))
-plt.hist(df['audience % score'], bins=div)
-plt.xlabel('audience % score')
-plt.ylabel('% budget recovered')
-plt.title('Histogram of Audience Score')
-st.pyplot()
+    # Histograma 2: audience % score
+    plt.figure(figsize=(12, 6))
+    plt.hist(df['audience % score'], bins=div, color=color)
+    plt.xlabel('audience % score')
+    plt.ylabel('% budget recovered')
+    plt.title('Histogram of Audience Score')
+    st.pyplot(plt.gcf())
 
-plt.figure(figsize=(12,6))
-plt.hist(df['year'], bins = div)
-plt.xlabel('year')
-plt.ylabel('% budget recovered')
-plt.title('Histogram of Year')
-st.pyplot()
+    # Histograma 3: year
+    plt.figure(figsize=(12, 6))
+    plt.hist(df['year'], bins=div, color=color)
+    plt.xlabel('year')
+    plt.ylabel('% budget recovered')
+    plt.title('Histogram of Year')
+    st.pyplot(plt.gcf())
+
+# Llamar a la función para dibujar los histogramas con el color seleccionado
+plot_histograms(color_options[color_choice])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Función para mostrar los g
+
