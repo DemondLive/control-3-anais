@@ -12,11 +12,6 @@ st.write("""
 """)
 st.sidebar.image("Marvel-en-2019-destacada.jpg")
 
-with st.sidebar:
-     st.write("# Cambiar cantidad de Bins")
-     div = st.slider('Número de bins:', 0, 100, 1)
-     st.write("Bins =", div)
-
 # Opciones de colores
 color_options = {
     'Rojo': 'red',
@@ -25,14 +20,17 @@ color_options = {
     'Rosado': 'pink'
 }
 
-# Selección del color en el menú lateral
-color_choice = st.sidebar.selectbox('Cambia el color del gráfico', list(color_options.keys()))
+# Crear el menú en la barra lateral para cambiar el color y los bins
+with st.sidebar:
+    st.write("# Cambiar cantidad de Bins")
+    div = st.slider('Número de bins:', 1, 100, 10)  # Rango de 1 a 100 con valor por defecto 10
+    st.write("Bins =", div)
+    
+    # Selección del color en la barra lateral
+    color_choice = st.selectbox('Cambia el color del gráfico', list(color_options.keys()))
 
-# Definir divisiones para los histogramas
-div = 10
-
-# Función para mostrar los gráficos con el color seleccionado
-def plot_histograms(color):
+# Función para mostrar los gráficos con el color seleccionado y número de bins
+def plot_histograms(color, div):
     # Histograma 1: worldwide gross
     plt.figure(figsize=(12, 6))
     plt.hist(df['worldwide gross ($m)'], bins=div, color=color)
@@ -57,5 +55,5 @@ def plot_histograms(color):
     plt.title('Histogram of Year')
     st.pyplot(plt.gcf())
 
-# Llamar a la función para dibujar los histogramas con el color seleccionado
-plot_histograms(color_options[color_choice])
+# Llamar a la función para dibujar los histogramas con el color y número de bins seleccionados
+plot_histograms(color_options[color_choice], div)
