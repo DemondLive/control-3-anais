@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+
+# Cargar el DataFrame de la base de datos Marvel Movies
 df = pd.read_csv('Marvel Movies.csv')
 
+# Título y descripción
 st.write("""
 # Top Marvel Movies
 ## Gráficos usando la base de datos de Marvel Movies
@@ -52,21 +54,3 @@ def plot_histograms(color):
 
 # Llamar a la función para dibujar los histogramas con el color seleccionado
 plot_histograms(color_options[color_choice])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Función para mostrar los g
-
