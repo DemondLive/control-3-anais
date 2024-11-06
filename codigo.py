@@ -13,9 +13,9 @@ st.write("""
 st.sidebar.image("Marvel-en-2019-destacada.jpg")
 
 with st.sidebar:
-    st.write("# Cambiar cantidad de Bins")
-    div = st.slider('Número de bins:', 0, 100, 1)
-    st.write("Bins =", div)
+     st.write("# Cambiar cantidad de Bins")
+     div = st.slider('Número de bins:', 0, 100, 1)
+     st.write("Bins =", div)
 
 # Opciones de colores
 color_options = {
